@@ -3,6 +3,7 @@
 Author: BigCat
 """
 import json
+import os
 import time
 import datetime
 import numpy as np
@@ -48,7 +49,7 @@ def main():
     return "Welcome to use!"
 
 
-@app.route('/predict_api', methods=['GET'])
+@app.route('/predict', methods=['GET'])
 def get_predict_result():
     diff_number = windows_size - 1
     data = spider(str(int(get_current_number()) - diff_number), get_current_number(), "predict")
@@ -82,6 +83,10 @@ def get_predict_result():
     return json.dumps(
         {b_name: int(res) + 1 for b_name, res in zip(ball_name_list, pred_result_list)}
     ).encode('utf-8').decode('unicode_escape')
+
+@app.route('/reset', methods=['GET'])
+def reset():
+    os.system('')
 
 
 if __name__ == '__main__':

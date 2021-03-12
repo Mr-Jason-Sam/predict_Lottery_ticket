@@ -86,7 +86,7 @@ def get_predict_result():
 
 @app.route('/reset', methods=['GET'])
 def reset():
-    os.system('')
+    os.system('sh /server/predict_Lottery_ticket/bin/restart.sh')
 
 
 if __name__ == '__main__':

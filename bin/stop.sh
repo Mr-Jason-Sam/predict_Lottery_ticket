@@ -4,8 +4,8 @@ BIN_DIR=`pwd`
 cd ..
 DEPLOY_DIR=`pwd`
 
-SERVER_NAME='run_api'
-PIDS=`ps -ef | grep java | grep "$DEPLOY_DIR" |awk '{print $2}'`
+SERVER_NAME='run_api.py'
+PIDS=`ps -ef | grep python | grep "$DEPLOY_DIR" |awk '{print $2}'`
 if [ -z "$PIDS" ]; then
     echo "ERROR: The $SERVER_NAME does not started!"
 else
@@ -27,9 +27,6 @@ else
             fi
         done
     done
-
-    echo "OK!"
     echo "PID: $PIDS"
 fi
-
-
+echo "stop end!"
